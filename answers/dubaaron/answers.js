@@ -1,26 +1,26 @@
 
 
-anagrams();
+palindromes();
 fizzbuzz();
 do_factorials();
-http_request();
+do_http_requests();
 
 
-function anagrams() {
-    console.log("Anagrams!");
+function palindromes() {
+    console.log("palindromes!");
 
     let haribol = "haribol";
-    let haribol_anagram = "lobirah";
+    let haribol_palindrome = "lobirah";
     let gauranga = "guaranga";
     
-    function is_anagram(str1, str2) {
+    function is_palindrome(str1, str2) {
         
         let str1_reversed = str1.split("").reverse().join("");
         return str1_reversed == str2;
     }
     
-    console.log("Is '" + haribol + "' anagram of '" + haribol_anagram + "'? " + is_anagram(haribol, haribol_anagram));
-    console.log("Is '" + haribol + "' anagram of '" + gauranga + "'? " + is_anagram(haribol, gauranga));
+    console.log("Is '" + haribol + "' palindrome of '" + haribol_palindrome + "'? " + is_palindrome(haribol, haribol_palindrome));
+    console.log("Is '" + haribol + "' palindrome of '" + gauranga + "'? " + is_palindrome(haribol, gauranga));
     
 }
 
@@ -44,6 +44,8 @@ function do_factorials() {
 
     function factorial(num) {
     
+        // TODO: for negative numbers, throw an error?
+
         if (num === 0 || num === 1) {
             return 1;
         }
@@ -80,9 +82,29 @@ function do_factorials() {
 
 
 
-function http_request(url) {
 
-    XMLHttpRequest.open("GET", url, false);
-    XMLHttpRequest.send();
 
+
+function do_http_requests() {
+
+
+
+
+    function http_request(url) {
+
+        const http = require('http');
+
+        console.log("Making request to " + url);
+
+        request = http.get(url, incomingMessage => {
+            console.log(incomingMessage);
+            
+        })
+    
+    }
+
+
+    http_request("http://cheese.com")
 }
+
+
